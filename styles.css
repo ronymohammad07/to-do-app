@@ -1,0 +1,225 @@
+/* Base styles for body */
+body {
+    background: #0f172a;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding: 1rem;
+    min-height: 100vh;
+}
+
+body::-webkit-scrollbar {
+    scrollbar-width: none;
+}
+
+/* Main Todo App */
+.todo-app {
+    background: #1e293b;
+    width: 100%;
+    max-width: 500px;  /* Limit width for smaller devices */
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    color: white;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    overflow: hidden;  /* To avoid content overflow */
+}
+
+/* Heading */
+.todo-app h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+/* Input Section */
+.input-area {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.input-area input {
+    flex: 1;
+    padding: 0.75rem;
+    border-radius: 12px;
+    border: none;
+    background: #334155;
+    color: white;
+    font-size: 1rem;
+}
+
+.input-area input:focus {
+    outline: 2px solid #3b82f6;
+}
+
+.input-area button {
+    padding: 0.75rem;
+    background: #3b82f6;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.input-area button:hover {
+    background: #2563eb;
+}
+
+/* Error message styling */
+.error-message {
+    color: #f87171;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: none;
+}
+
+/* Tasks Section */
+.tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.task {
+    background: #334155;
+    padding: 1rem;
+    border-radius: 12px;
+    gap: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.task .text {
+    flex: 1;
+    font-size: 1rem;
+    word-break: break-word;
+}
+
+.task .text.completed {
+    text-decoration: line-through;
+    text-decoration-color: red;
+    text-decoration-thickness: 2px;
+    opacity: 0.6;
+}
+
+.task .actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: 1rem;
+}
+
+.task .actions button {
+    background: none;
+    border: none;
+    color: #cbd5e1;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.2s;
+}
+
+.task .actions button:hover {
+    transform: scale(1.2);
+}
+
+/* Circle button styling */
+.task .circle-btn {
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.task .circle-btn.completed {
+    color: green;
+}
+
+.task .circle-btn:hover {
+    transform: scale(1.2);
+}
+
+/* Edit input */
+.task .task-edit-input {
+    background: #334155;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem;
+    color: white;
+    font-size: 1rem;
+    width: 100%;
+}
+
+/* Input Error */
+.task input.error {
+    border: 2px solid red; /* Red border on error */
+}
+
+/* Responsive Media Queries */
+
+/* For devices with screen width above 600px (tablets and small desktops) */
+@media (min-width: 600px) {
+    .todo-app {
+        max-width: 600px;  /* Slightly larger width */
+        padding: 2rem;  /* Increase padding for larger screen */
+    }
+
+    .task {
+        flex-direction: row;
+        gap: 1rem;
+        padding: 1.25rem;  /* Add more padding inside task */
+    }
+
+    .task .text {
+        font-size: 1.1rem;  /* Slightly increase font size */
+    }
+
+    .task .actions button {
+        font-size: 1.4rem;  /* Increase button size */
+    }
+}
+
+/* For devices with screen width above 1024px (larger desktops) */
+@media (min-width: 1024px) {
+    .todo-app {
+        max-width: 800px;  /* Increase the max-width */
+        padding: 2.5rem;  /* Further increase padding */
+    }
+
+    .task {
+        padding: 1.5rem;  /* Increase padding inside task */
+    }
+
+    .task .text {
+        font-size: 1.2rem;  /* Increase text size */
+    }
+
+    .task .actions button {
+        font-size: 1.5rem;  /* Increase button size */
+    }
+}
+
+/* For even larger screens */
+@media (min-width: 1200px) {
+    .todo-app {
+        max-width: 900px;  /* Max width for larger screens */
+        padding: 3rem;  /* Extra padding for large screens */
+    }
+
+    .task {
+        padding: 1.75rem;  /* Increase padding inside task */
+    }
+
+    .task .text {
+        font-size: 1.3rem;  /* Larger text for readability */
+    }
+
+    .task .actions button {
+        font-size: 1.6rem;  /* Larger buttons */
+    }
+}
