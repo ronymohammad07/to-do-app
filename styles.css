@@ -3,10 +3,7 @@ body {
     background: #0f172a;
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    padding: 1rem;
+
     min-height: 100vh;
 }
 
@@ -18,14 +15,16 @@ body::-webkit-scrollbar {
 .todo-app {
     background: #1e293b;
     width: 100%;
-    max-width: 500px;  /* Limit width for smaller devices */
+    max-width: 500px;
+    /* Limit width for smaller devices */
     border-radius: 16px;
-    padding: 1.5rem;
+    padding: 1rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     color: white;
     box-sizing: border-box;
     transition: all 0.3s ease;
-    overflow: hidden;  /* To avoid content overflow */
+    overflow: hidden;
+    /* To avoid content overflow */
 }
 
 /* Heading */
@@ -34,6 +33,30 @@ body::-webkit-scrollbar {
     margin-bottom: 1rem;
     font-size: 1.8rem;
 }
+
+/* Apply to all the spans inside the h1 */
+h1 .same {
+    color: #fff; /* White text color */
+    /* text-shadow:  */
+        /* 1px 1px 3px rgba(0, 0, 0, 0.2),   */
+        /* 0 0 10px rgba(255, 255, 255, 0.6), */
+        /* 0 0 20px rgba(255, 255, 255, 0.4); */
+}
+
+.same {
+    opacity: 0;  /* Start with all letters invisible */
+    transition: opacity 0.5s ease-in-out;  /* Smooth transition for the fade-in effect */
+}
+
+
+/* Optional: Hover effect for a glowing effect on hover */
+h1 .same-same:hover {
+    text-shadow: 
+        2px 2px 5px rgba(0, 0, 0, 0.4),
+        0 0 15px rgba(255, 255, 255, 0.9),
+        0 0 30px rgba(255, 255, 255, 0.5);
+}
+
 
 /* Input Section */
 .input-area {
@@ -89,25 +112,31 @@ body::-webkit-scrollbar {
 .task {
     background: #334155;
     padding: 1rem;
+    margin-bottom: 0.4rem;
     border-radius: 12px;
     display: grid;
-    grid-template-columns: 40px 1fr auto;  /* Adjusts the layout into 3 columns */
+    grid-template-columns: 40px 1fr 80px;
+    /* Adjusts the layout into 3 columns */
     align-items: center;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .circle-btn {
-    grid-column: 1 / 2;  /* Leftmost column */
-    justify-self: center;  /* Center the button horizontally */
+    grid-column: 1 / 2;
+    /* Leftmost column */
+    justify-self: center;
+    /* Center the button horizontally */
     font-size: 1.5rem;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
 .task .text {
-    grid-column: 2 / 3;  /* Center column */
+    grid-column: 2 / 3;
+    /* Center column */
     font-size: 1rem;
-    word-break: break-word;
+    /* word-break: break-word; */
+    text-align: justify;
 }
 
 .task .text.completed {
@@ -118,10 +147,12 @@ body::-webkit-scrollbar {
 }
 
 .task .actions {
-    grid-column: 3 / 4;  /* Rightmost column */
+    grid-column: 3 / 4;
+    /* Rightmost column */
     display: flex;
-    gap: 0.5rem;
-    justify-self: flex-end;  /* Align the action buttons to the right */
+    /* gap: 0.5rem; */
+    justify-self: flex-end;
+    /* Align the action buttons to the right */
 }
 
 .task .actions button {
@@ -138,7 +169,8 @@ body::-webkit-scrollbar {
 }
 
 .task .circle-btn.completed {
-    color: green;  /* Color for completed tasks */
+    color: green;
+    /* Color for completed tasks */
 }
 
 .task .circle-btn:hover {
@@ -159,69 +191,99 @@ body::-webkit-scrollbar {
 
 /* Input Error */
 .task input.error {
-    border: 2px solid red; /* Red border on error */
+    border: 2px solid red;
+    /* Red border on error */
 }
 
 /* Responsive Media Queries */
 
 /* For devices with screen width above 600px (tablets and small desktops) */
 @media (min-width: 600px) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        padding: 1rem;
+    }
     .todo-app {
-        max-width: 600px;  /* Slightly larger width */
-        padding: 2rem;  /* Increase padding for larger screen */
+        max-width: 600px;
+        /* Slightly larger width */
     }
 
     .task {
         flex-direction: row;
         gap: 1rem;
-        padding: 1.25rem;  /* Add more padding inside task */
+        padding: 1.25rem;
+        /* Add more padding inside task */
     }
 
     .task .text {
-        font-size: 1.1rem;  /* Slightly increase font size */
+        font-size: 1.1rem;
+        /* Slightly increase font size */
     }
 
     .task .actions button {
-        font-size: 1.4rem;  /* Increase button size */
+        font-size: 1.4rem;
+        /* Increase button size */
     }
 }
 
 /* For devices with screen width above 1024px (larger desktops) */
 @media (min-width: 1024px) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        padding: 1rem;
+    }
+
     .todo-app {
-        max-width: 800px;  /* Increase the max-width */
-        padding: 2.5rem;  /* Further increase padding */
+        max-width: 800px;
+        /* Increase the max-width */
     }
 
     .task {
-        padding: 1.5rem;  /* Increase padding inside task */
+        padding: 1.5rem;
+        /* Increase padding inside task */
     }
 
     .task .text {
-        font-size: 1.2rem;  /* Increase text size */
+        font-size: 1.2rem;
+        /* Increase text size */
     }
 
     .task .actions button {
-        font-size: 1.5rem;  /* Increase button size */
+        font-size: 1.5rem;
+        /* Increase button size */
     }
 }
 
 /* For even larger screens */
 @media (min-width: 1200px) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        padding: 1rem;
+    }
+
     .todo-app {
-        max-width: 900px;  /* Max width for larger screens */
-        padding: 3rem;  /* Extra padding for large screens */
+        max-width: 900px;
+        /* Max width for larger screens */
     }
 
     .task {
-        padding: 1.75rem;  /* Increase padding inside task */
+        padding: 1.75rem;
+        /* Increase padding inside task */
     }
 
     .task .text {
-        font-size: 1.3rem;  /* Larger text for readability */
+        font-size: 1.3rem;
+        /* Larger text for readability */
     }
 
     .task .actions button {
-        font-size: 1.6rem;  /* Larger buttons */
+        font-size: 1.6rem;
+        /* Larger buttons */
     }
 }

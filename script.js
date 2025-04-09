@@ -1,4 +1,38 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Select all span elements
+    const spans = document.querySelectorAll('.same');
+
+    // Loop through each span and apply setTimeout to delay its display
+    spans.forEach((span, index) => {
+        // Adding delay for each span based on its index
+        setTimeout(() => {
+            // Apply textShadow to the individual span
+            span.style.textShadow = '2px 2px 5px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 255, 255, 0.5)';
+
+            // Make the letter visible
+            span.style.opacity = 1;
+
+            setTimeout(() => {
+                span.style.color = 'black';
+                span.style.textShadow = '';
+
+                setTimeout(() => {
+                    span.style.color = '';
+
+                    // Apply textShadow to the individual span
+                    span.style.textShadow = '2px 2px 5px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 255, 255, 0.5)';
+
+                    // Make the letter visible
+                    span.style.opacity = 1;
+                }, index * 100)
+
+            }, index * 150);
+        }, index * 400); // Adjust the multiplier (200ms) for delay between letters
+    });
+
+
+
+
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     tasks.forEach(task => addTask(task.value, task.completed));
 });
@@ -7,7 +41,7 @@ function inputValue() {
     const input = document.getElementById('inputValue');
     const errorMessage = document.getElementById('errorMessage');  // Get the error message element
     const value = input.value.trim();
-    
+
     // Add error class if input is empty
     if (!value) {
         input.classList.add('error');  // Add the error class to input field
@@ -112,3 +146,5 @@ function saveToStorage() {
 function errorMessageHidden() {
     document.getElementById('errorMessage').style.display = 'none';
 }
+
+
