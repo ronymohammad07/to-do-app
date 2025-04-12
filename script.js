@@ -1,3 +1,77 @@
+// navbar all function
+
+// Function to show/hide the menu and toggle the state
+function ShowMenuItem(action) {
+    const category = document.getElementById('category');
+    const menuIcon = document.querySelector('.mobile-menu');
+    const crossIcon = document.querySelector('.mobile-cross');
+
+    if (action === 'menu') {
+        category.style.display = 'block';
+        menuIcon.style.display = 'none';
+        crossIcon.style.display = 'block';
+    } else if (action === 'cross') {
+        category.style.display = 'none';
+        menuIcon.style.display = 'block';
+        crossIcon.style.display = 'none';
+    }
+}
+
+// Optional: Close menu on window resize if greater than mobile size
+window.addEventListener('resize', function () {
+    const category = document.getElementById('category');
+    const menuIcon = document.querySelector('.mobile-menu');
+    const crossIcon = document.querySelector('.mobile-cross');
+
+    if (window.innerWidth > 768) {
+        category.style.display = 'block';
+        menuIcon.style.display = 'none';
+        crossIcon.style.display = 'none';
+    } else {
+        category.style.display = 'none';
+        menuIcon.style.display = 'block';
+        crossIcon.style.display = 'none';
+    }
+});
+
+// Set initial display based on screen size
+window.addEventListener('load', () => {
+    if (window.innerWidth <= 768) {
+        document.getElementById('category').style.display = 'none';
+        document.querySelector('.mobile-menu').style.display = 'block';
+        document.querySelector('.mobile-cross').style.display = 'none';
+    }
+});
+
+
+
+// Hide preloader after everything is loaded
+// window.addEventListener('load', () => {
+//     const preloader = document.getElementById('preloader');
+//     preloader.style.opacity = '0';
+//     preloader.style.transition = 'opacity 0.5s ease';
+
+//     setTimeout(() => {
+//         preloader.style.display = 'none';
+//     }, 500); // Wait for fade out
+// });
+
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    preloader.style.opacity = '0';
+
+    setTimeout(() => {
+        preloader.style.display = 'none';
+    }, 1000); // Wait for fade
+});
+
+
+
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
     // Select all span elements
     const spans = document.querySelectorAll('.same');

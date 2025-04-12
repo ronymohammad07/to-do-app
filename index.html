@@ -9,13 +9,72 @@
 </head>
 
 <body>
+    <!-- Custom Bouncing Dots Preloader -->
+    <div id="preloader">
+        <div class="loading-text">All In One<span class="dots"><span>.</span><span>.</span><span>.</span></span></div>
+    </div>
+
+
+
+    <!-- navbar section -->
+    <header>
+        <nav>
+            <div class="nav-card" id="navCard">
+                <!-- nav logo -->
+                <div class="nav-logo">
+                    <span>
+                        All In One
+                    </span>
+                </div>
+
+                <!-- <h1 class="h1">hello</h1> -->
+
+                <!-- Category name -->
+                <div class="category" id='category'>
+                    <ul>
+                        <div class="list-class">
+                            <li>Home</li>
+                            <li>Calculator</li>
+                            <li>To Do List</li>
+                            <li>About Us</li>
+                        </div>
+
+
+                    </ul>
+                </div>
+
+                <!-- mobile icon show -->
+                <div class="mobile-icon">
+                    <!-- mobile menu bar -->
+                    <li class="mobile-menu" onclick="ShowMenuItem('menu')">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="35px" viewBox="0 -960 960 960" width="35px"
+                            fill="#ffffff">
+                            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                        </svg>
+                    </li>
+
+                    <!-- mobile menu bar cross icon -->
+                    <li class="mobile-cross" onclick="ShowMenuItem('cross')">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="35px" viewBox="0 -960 960 960" width="35px"
+                            fill="#ffffff">
+                            <path
+                                d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                        </svg>
+                    </li>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- main section -->
     <main>
         <div class="todo-app">
             <h1>
                 <span class="span-1 same" id="span-1">
                     T
                 </span>
-                
+
                 <span class="span-2 same" id="span-2">
                     O
                 </span>

@@ -7,10 +7,136 @@ body {
     min-height: 100vh;
 }
 
+
+
+
+/* Preloader full screen */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.4s ease;
+}
+
+/* Loading text */
+.loading-text {
+    font-size: 1.8rem;
+    color: #ffffff;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+/* Bouncing dots */
+.dots span {
+    animation: bounce 1.4s infinite;
+    font-size: 2rem;
+    display: inline-block;
+    color: #3b82f6;
+}
+
+.dots span:nth-child(1) {
+    animation-delay: 0s;
+}
+.dots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.dots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+    0%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+}
+
+
+
+
+
+
+
+ul li {
+    list-style: none;
+}
+
 /* Hide scrollbars */
 body::-webkit-scrollbar {
     scrollbar-width: none;
 }
+
+
+/* navbar section */
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+nav {
+    width: 100%;
+    margin: 1rem 0;
+}
+
+/* navbar section */
+.nav-card {
+    background-color: #1e293b;
+    padding: 0 1rem;
+    border-radius: 0.5rem;
+    /* max-height: 50px; */
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    
+    /* grid-template-rows: 100%; */
+    align-items: center;
+}
+
+
+/* category name  list */
+
+.category ul .list-class {
+    /* display: none; */
+}
+
+/* logo section */
+
+.nav-logo span {
+    font-size: 1.8rem;
+    font-weight: bolder;
+    color: white;
+    cursor: pointer;
+}
+
+/* mobile icon section */
+.mobile-icon li svg {
+    border: 2px solid #334155;
+}
+
+.mobile-icon li svg:active {
+    border: 2px solid white;
+}
+
+/* mobile icon */
+
+.mobile-icon li svg {
+    padding: 0 2px;
+}
+
+/* category name */
+
+
+
 
 /* main */
 main {
@@ -24,8 +150,10 @@ main {
 .todo-app {
     background: #1e293b;
     width: 100%;
-    max-width: 500px;  /* Limit width on smaller devices */
-    min-width: 320px;  /* Ensure it doesn't collapse too much on mobile */
+    max-width: 500px;
+    /* Limit width on smaller devices */
+    min-width: 320px;
+    /* Ensure it doesn't collapse too much on mobile */
     border-radius: 16px;
     padding: 0 1rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -163,12 +291,180 @@ h1 .same {
     border: 2px solid red;
 }
 
+
+
+
 /* Responsive Media Queries */
 
 /* For devices with screen width above 600px (tablets and small desktops) */
-@media (min-width: 600px) {
+
+/* menu icon show on mobile */
+@media (max-width: 659px) {
+
+    /* navbar section */
+    nav {
+        width: 500px;
+    }
+.nav-card {
+    padding: 1rem;
+    grid-template-columns: repeat(auto-fit, (12, 1fr));
+    grid-template-rows: auto auto;
+}
+
+    /* category name  list */
+
+    .category  {
+        display: none;
+    }
+
+    /* logo section */
+    .nav-logo {
+        grid-column: 1 / 9;
+    }
+
+    /* mobile icon */
+    .mobile-icon .mobile-menu {
+        display: flex;
+    }
+
+    .mobile-icon .mobile-cross {
+        display: none;
+    }
+
+    /* category name */
+    .mobile-icon {
+        grid-column: 10 / 13;
+        /* background-color: blue; */
+        justify-self: end;
+    }
+
+    .category {
+        grid-column: 1 / -1;
+        grid-row: 2 / 3;
+        /* justify-self: end; */
+    }
+
+    .category ul .list-class {
+        display: grid;
+        grid-auto-flow: row;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 0.5rem;
+    }
+
+    .category ul .list-class li {
+        font-size: 1.1rem;
+        font-weight: bolder;
+        margin-right: 1rem;
+        color: white;
+        cursor: pointer;
+    }
+
+    ul .list-class li:hover {
+        opacity: 0.2;
+    }
+
+
+    /* mobile device show category */
+
+
+
+}
+
+
+
+@media (min-width: 660px) {
+
+    /* navbar section */
+    header {
+        display: flex;
+        justify-content: center;
+    }
+
+    nav {
+        width: 700px;
+        margin: 1rem;
+    }
+
+    /* navbar section */
+    .nav-card {
+        /* background-color: red; */
+        padding: 0 1rem;
+        border-radius: 0.5rem;
+        /* max-height: 50px; */
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        /* grid-template-rows: 100%; */
+        align-items: center;
+    }
+
+    /* logo section */
+    .nav-logo {
+        /* max-height: 50px; */
+        grid-column: 1 / 4;
+        /* background-color: white; */
+        /* justify-self: center; */
+    }
+
+    .nav-logo span {
+        font-size: 2rem;
+        font-weight: bolder;
+        color: white;
+        cursor: pointer;
+    }
+
+    /* category name */
+    .category {
+        grid-column: 5 / -1;
+        /* background-color: blue; */
+        justify-self: end;
+    }
+
+    .category ul .list-class {
+        display: flex;
+    }
+
+    .category ul .list-class li {
+        font-size: 1.1rem;
+        font-weight: bolder;
+        margin-right: 1rem;
+        color: white;
+        cursor: pointer;
+    }
+
+    ul .list-class li:hover {
+        opacity: 0.2;
+    }
+
+    /* mobile icon show */
+    .mobile-icon {
+        display: flex;
+    }
+
+    .mobile-icon li svg {
+        border: 2px solid #334155;
+    }
+
+    .mobile-icon li svg:active {
+        border: 2px solid white;
+    }
+
+    /* mobile icon */
+    .mobile-icon .mobile-menu {
+        display: none;
+    }
+
+    .mobile-icon .mobile-cross {
+        display: none;
+    }
+
+
+
+
+
+    /* main section */
     .todo-app {
-        max-width: 700px;  /* Increase max width */
+        max-width: 700px;
+        /* Increase max width */
         margin: 1rem;
         /* padding: 1.5rem; */
     }
@@ -186,8 +482,92 @@ h1 .same {
     }
 }
 
+
+
 /* For devices with screen width above 1024px (larger desktops) */
 @media (min-width: 1024px) {
+
+    /* navbar section */
+    header {
+        display: flex;
+        justify-content: center;
+    }
+
+    nav {
+        width: 900px;
+
+    }
+
+    /* navbar section */
+    .nav-card {
+        background-color: #1e293b;
+        padding: 0 1rem;
+        border-radius: 0.5rem;
+        /* max-height: 50px; */
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        /* grid-template-rows: 100%; */
+        align-items: center;
+    }
+
+    /* logo section */
+    .nav-logo {
+        /* max-height: 50px; */
+        grid-column: 1 / 4;
+        /* background-color: white; */
+        /* justify-self: center; */
+    }
+
+    .nav-logo span {
+        font-size: 2rem;
+        font-weight: bolder;
+        color: white;
+        cursor: pointer;
+    }
+
+    /* category name */
+    .category {
+        grid-column: 6 / -1;
+        /* background-color: blue; */
+        justify-self: end;
+    }
+
+    .category ul .list-class {
+        display: flex;
+    }
+
+    .category ul .list-class li {
+        font-size: 1.1rem;
+        font-weight: bolder;
+        margin-right: 1rem;
+        color: white;
+        cursor: pointer;
+    }
+
+    ul .list-class li:hover {
+        opacity: 0.2;
+    }
+
+    /* mobile icon show */
+    .mobile-icon {
+        display: flex;
+    }
+
+
+
+
+    .mobile-icon li svg {
+        border: 2px solid #334155;
+    }
+
+    .mobile-icon li svg:active {
+        border: 2px solid white;
+    }
+
+
+
+    /* main section */
+
     .todo-app {
         max-width: 900px;
         /* padding: 2rem; */
@@ -208,6 +588,16 @@ h1 .same {
 
 /* For even larger screens */
 @media (min-width: 1200px) {
+
+    /* navbar section */
+    nav {
+        width: 1000px;
+
+    }
+
+
+
+    /* main section */
     .todo-app {
         max-width: 1000px;
         /* padding: 2.5rem; */
